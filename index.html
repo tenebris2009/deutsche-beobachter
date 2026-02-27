@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deutsche Beobachter | Nachrichten, Analysen & Meinungen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #f6f6f6;
+            color: #121212;
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: #1a4d8f;
+            padding: 12px 0;
+            border-bottom: 4px solid #0f3363;
+        }
+
+        .header-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .masthead {
+            background-color: #ffffff;
+            border-bottom: 1px solid #dcdcdc;
+            padding: 24px 0;
+        }
+
+        .masthead-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .logo-container {
+            flex-shrink: 0;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .masthead-text {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .site-name {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 52px;
+            font-weight: 900;
+            letter-spacing: -1px;
+            color: #121212;
+            text-decoration: none;
+        }
+
+        .site-name a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: #767676;
+            margin-top: 4px;
+            font-weight: 400;
+        }
+
+        .date-bar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #dcdcdc;
+            padding: 10px 0;
+        }
+
+        .date-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #767676;
+        }
+
+        .main-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 32px 20px;
+        }
+
+        .top-story {
+            background-color: #ffffff;
+            border-top: 3px solid #1a4d8f;
+            padding: 32px;
+            margin-bottom: 40px;
+        }
+
+        .section-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a4d8f;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .headline-main {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            color: #121212;
+        }
+
+        .headline-main a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .headline-main a:hover {
+            color: #1a4d8f;
+        }
+
+        .article-meta {
+            font-size: 13px;
+            color: #767676;
+            margin-bottom: 20px;
+        }
+
+        .byline {
+            font-weight: 600;
+            color: #121212;
+        }
+
+        .timestamp {
+            margin-left: 8px;
+        }
+
+        .article-excerpt {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #2e2e2e;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 12px;
+            color: #1a4d8f;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .read-more:hover {
+            color: #0f3363;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .article-card {
+            background-color: #ffffff;
+            border-top: 2px solid #dcdcdc;
+            padding: 24px;
+        }
+
+        .headline-secondary {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 12px;
+            color: #121212;
+        }
+
+        .headline-secondary a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .headline-secondary a:hover {
+            color: #1a4d8f;
+        }
+
+        .article-card .article-excerpt {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .footer {
+            background-color: #2e2e2e;
+            color: #b0b0b0;
+            padding: 40px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .disclaimer {
+            opacity: 0.4;
+            font-size: 11px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #404040;
+        }
+
+        @media (max-width: 968px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .headline-main {
+                font-size: 32px;
+            }
+
+            .site-name {
+                font-size: 36px;
+            }
+
+            .masthead-content {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .logo {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+        </div>
+    </header>
+
+    <div class="masthead">
+        <div class="masthead-content">
+            <div class="logo-container">
+                <img src="logo.svg" alt="Deutsche Beobachter Logo" style="height: 60px; margin-right: 15px;">
+            </div>
+            <div class="masthead-text">
+                <h1 class="site-name"><a href="index.html">Deutsche Beobachter</a></h1>
+                <p class="tagline">Die Stimme der Wahrheit</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="date-bar">
+        <div class="date-content">
+            Montag, 2. Merz 2026
+        </div>
+    </div>
+
+    <main class="main-container">
+        <article class="top-story">
+            <div class="section-label">Politik</div>
+            <h2 class="headline-main"><a href="articles/article11.html">Regierung prüft Fleisch-Steuer: Döner könnte  13 € kosten</a></h2>
+            <div class="article-meta">
+                <span class="byline">Von Markus Schneider</span>
+                <span class="timestamp">Heute, 16:45 Uhr</span>
+            </div>
+            <div class="article-excerpt">
+                <p>In den Berliner Regierungsvierteln verdichten sich die Hinweise darauf, dass die Besteuerung von Lebensmitteln vor einem radikalen Umbruch steht. Hintergrund sind vertrauliche Arbeitspapiere, die eine neue Lenkungsabgabe auf Fleischprodukte vorsehen...</p>
+                <a href="articles/article11.html" class="read-more">Weiterlesen →</a>
+            </div>
+        </article>
+
+        <div class="grid">
+            <article class="article-card">
+                <div class="section-label">Gesellschaft</div>
+                <h3 class="headline-secondary"><a href="articles/article12.html">Potsdam unter Wasser – Anwohner werfen Stadt „völliges Versagen" vor</a></h3>
+                <div class="article-meta">
+                    <span class="byline">Von Christina Bauer</span>
+                    <span class="timestamp">Heute, 15:20 Uhr</span>
+                </div>
+                <div class="article-excerpt">
+                    <p>Die Lage in Potsdam bleibt nach den jüngsten Extremwetterereignissen kritisch. Weite Teile der ufernahen Gebiete und öffentlichen Parkanlagen stehen unter Wasser...</p>
+                    <a href="articles/article12.html" class="read-more">Weiterlesen →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="section-label">Technologie</div>
+                <h3 class="headline-secondary"><a href="articles/article13.html">Epstein-Akten enthalten angeblich 14 Seiten mit nur dem Wort „Döner"</a></h3>
+                <div class="article-meta">
+                    <span class="byline">Von Robert Klein</span>
+                    <span class="timestamp">Heute, 14:55 Uhr</span>
+                </div>
+                <div class="article-excerpt">
+                    <p>Der Kriminalfall um Jeffrey Epstein zieht auch Jahre nach seinem Tod immer weitere Kreise. Bei der Durchsicht von neu freigegebenen Dokumenten wollen Insider auf eine höchst bizarre Entdeckung gestoßen sein...</p>
+                    <a href="articles/article13.html" class="read-more">Weiterlesen →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="section-label">Politik</div>
+                <h3 class="headline-secondary"><a href="articles/article14.html">„Der Weltraum gehört den USA." – Internationale Empörung über US-Anspruch</a></h3>
+                <div class="article-meta">
+                    <span class="byline">Von Dr. Felix Hartmann</span>
+                    <span class="timestamp">Heute, 13:40 Uhr</span>
+                </div>
+                <div class="article-excerpt">
+                    <p>Die internationale Gemeinschaft reagiert mit Bestürzung auf neue Töne, die die zukünftige Vorherrschaft im All betreffen. In einer Grundsatzrede wurde die provokante Behauptung aufgestellt, dass der Weltraum den USA gehöre...</p>
+                    <a href="articles/article14.html" class="read-more">Weiterlesen →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="section-label">Politik</div>
+                <h3 class="headline-secondary"><a href="articles/article15.html">AfD fordert Bio-Deutsche Schulklassen – „Bildung braucht kulturelle Reinheit"</a></h3>
+                <div class="article-meta">
+                    <span class="byline">Von Laura Meier</span>
+                    <span class="timestamp">Heute, 12:30 Uhr</span>
+                </div>
+                <div class="article-excerpt">
+                    <p>Ein neuer bildungspolitischer Vorstoß sorgt für massive Erschütterungen in der deutschen Schullandschaft. Aus den Reihen der AfD wurde ein Konzeptpapier veröffentlicht, das eine strikte Trennung von Schülern fordert...</p>
+                    <a href="articles/article15.html" class="read-more">Weiterlesen →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="section-label">Politik</div>
+                <h3 class="headline-secondary"><a href="articles/article16.html">14–15 Uhr: Handy aus. Staatlich verordnet.</a></h3>
+                <div class="article-meta">
+                    <span class="byline">Von Simon Wagner</span>
+                    <span class="timestamp">Heute, 11:15 Uhr</span>
+                </div>
+                <div class="article-excerpt">
+                    <p>In einem beispiellosen Vorstoß plant die Bundesregierung offenbar eine tägliche, obligatorische „digitale Auszeit" für alle Bürger. Mobiltelefone sollen von 14 bis 15 Uhr vollständig ausgeschaltet bleiben...</p>
+                    <a href="articles/article16.html" class="read-more">Weiterlesen →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="section-label">Wirtschaft</div>
+                <h3 class="headline-secondary"><a href="articles/article17.html">DAX stürzt um 4,3 % ab – Tech-Werte besonders betroffen</a></h3>
+                <div class="article-meta">
+                    <span class="byline">Von Johannes Fischer</span>
+                    <span class="timestamp">Heute, 10:30 Uhr</span>
+                </div>
+                <div class="article-excerpt">
+                    <p>Anleger am deutschen Aktienmarkt erlebten heute einen schwarzen Tag, als der Leitindex DAX massiv unter Druck geriet und um 4,3 % einbrach. Besonders hart traf es die Technologie-Werte...</p>
+                    <a href="articles/article17.html" class="read-more">Weiterlesen →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="section-label">Wirtschaft</div>
+                <h3 class="headline-secondary"><a href="articles/article18.html">Industrieproduktion +30,1 % – Maschinenbau, Autozulieferer und Chemie legen zu</a></h3>
+                <div class="article-meta">
+                    <span class="byline">Von Eva Zimmermann</span>
+                    <span class="timestamp">Heute, 09:15 Uhr</span>
+                </div>
+                <div class="article-excerpt">
+                    <p>Die deutsche Industrie verzeichnet einen unerwarteten und massiven Wachstumsschub. Neuesten Zahlen aus Berlin zufolge ist die Industrieproduktion um beeindruckende 30,1 % gestiegen...</p>
+                    <a href="articles/article18.html" class="read-more">Weiterlesen →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="section-label">Politik</div>
+                <h3 class="headline-secondary"><a href="articles/article19.html">Regierung prüft „Social-Media-Führerschein" für unter 21-Jährige</a></h3>
+                <div class="article-meta">
+                    <span class="byline">Von Petra Hoffmann</span>
+                    <span class="timestamp">Heute, 08:00 Uhr</span>
+                </div>
+                <div class="article-excerpt">
+                    <p>Die Debatte um den Schutz junger Menschen im Internet erreicht eine neue Stufe. Informationen aus Regierungskreisen zufolge wird derzeit die Einführung eines verpflichtenden „Social-Media-Führerscheins" geprüft...</p>
+                    <a href="articles/article19.html" class="read-more">Weiterlesen →</a>
+                </div>
+            </article>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p><strong>Deutsche Beobachter</strong> – Unabhängige Nachrichten und Analysen</p>
+            <p>Kontakt: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="46342322272d322f2928062223333235252e236b2423292427252e322334682223">[email&#160;protected]</a> | Tel: +49 (0)30 12345678</p>
+            
+            <div class="disclaimer">
+                <p><strong>Hinweis:</strong> Diese Website ist ein fiktionales Bildungsprojekt. Alle Artikel, Zitate und Institutionen sind erfunden. Sie dient ausschließlich der Demonstration, wie einfach irreführende Nachrichtenseiten erstellt werden können. Keine der dargestellten Informationen ist real. Bitte überprüfen Sie
